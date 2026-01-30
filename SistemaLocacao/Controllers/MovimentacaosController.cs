@@ -49,8 +49,8 @@ namespace SistemaLocacao.Controllers
         // GET: Movimentacaos/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "ClienteId");
-            ViewData["FilmeId"] = new SelectList(_context.Filme, "FilmeId", "FilmeId");
+            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "Nome");
+            ViewData["FilmeId"] = new SelectList(_context.Filme, "FilmeId", "Titulo");
             return View();
         }
 
