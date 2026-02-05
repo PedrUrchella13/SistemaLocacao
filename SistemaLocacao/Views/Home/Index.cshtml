@@ -2,31 +2,42 @@
     ViewData["Title"] = "PhilmeHub";
 }
 
-<div class="container">
+<div class="container justify-content-center mw-100">
     <!--Logo e Escrito-->
-    <div> </div>
+    <div class="row d-flex justify-content-center" style="text-align:justify; margin-top: 90px; margin-bottom: 90px;">
+		<div class="col-10 d-flex">
+            <img class="w-100" src="~/img/logo.png" />
+		</div>
 
-    <!--Catálogo-->
-    <div></div>
+		<div class="col-12 col-md-6">
+			<img class="w-100" src="~/img/Filmes.png" alt="Filmes Cult Muito Top (●'◡'●)"/>
+		</div>
 
+		<div class="col-12 col-md-6 ">
+			<p class="text-dark bg-white rounded-4 p-4">
+				Somos mais que uma locadora — somos um ponto de encontro para quem acredita que cinema é descoberta, risco e visão autoral. Nascemos com uma proposta disruptiva: quebrar o algoritmo, desafiar o óbvio e devolver ao				público o prazer de garimpar filmes, com um catálogo vivo, curado e em constante mutação que reúne produções independentes, obras de festivais, filmes de diretor, experimentais, raridades restauradas e narrativas				que raramente chegam ao circuito tradicional. Aqui você não encontra apenas o que está em alta, mas o que vale ser visto; trabalhamos com curadoria temática, ciclos de diretores, movimentos cinematográficos e					cinematografias pouco exploradas, além de lançamentos independentes que expandem linguagem, estética e conteúdo. Cada título do acervo foi escolhido para provocar — pela forma, pela ideia ou pela emoção — porque					acreditamos no cinema como arte, diálogo e experiência; por isso, criamos um espaço de descoberta com recomendações humanas, coleções comentadas e seleções surpresa para quem quer sair do lugar-comum. Se você					procura histórias fora de fórmula, imagens fora de padrão e vozes fora do centro, você está em casa: cinema vivo, catálogo inquieto, curadoria com intenção.
+			</p>
+			<img class="w-100" src="~/img/FooterAlien.png" alt="Footer, O 8º Passageiro"/>
+		</div>
+	</div>
     <!--Alugar e Cadastrar-->
 	<div class="row text-center">
 		<div class="col-12 col-md-6 mb-4">
-			<div class="card w-75 mb-3 w-100">
+			<div class="card mb-3 w-100">
 				<div class="card-body">
-					<h5 class="card-title">Adicionar Times</h5>
-					<p class="card-text">Adicione o seu time, para se preparar ao grande campeonato!</p>
-					<a href="#" class="btn btn-outline-dark">Inscreva-se</a>
+					<h5 class="card-title" style="font-family: Broadway; ">Assista</h5>
+					<p class="card-text">Escolha um dos melhores filmes numa eperiência vintage e cult!</p>
+					<a class="btn btn-outline-dark" asp-area="" asp-controller="Filmes" asp-action="Index">Alugar</a>
 				</div>
 			</div>
 		</div>
 
 		<div class="col-12 col-md-6 mb-4">
-			<div class="card w-75 mb-3 w-100">
+			<div class="card mb-3 w-100">
 				<div class="card-body">
-					<h5 class="card-title">Veja a Pontuação dos times</h5>
-					<p class="card-text">Veja a pontuação do seu time, para ganhar este grande campeonato!</p>
-					<a href="#" class="btn btn-outline-dark">Pontuação</a>
+					<h5 class="card-title" style="font-family: Broadway">Novos Clientes</h5>
+					<p class="card-text">Cadastre clientes para mais pessoas participarem desta nova experiência!</p>
+					<a class="btn btn-outline-dark" asp-area="" asp-controller="Filmes" asp-action="Index">Cadastrar</a>
 				</div>
 			</div>
 		</div>
