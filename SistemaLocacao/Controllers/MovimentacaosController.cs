@@ -49,6 +49,14 @@ namespace SistemaLocacao.Controllers
         // GET: Movimentacaos/Create
         public IActionResult Create()
         {
+            Movimentacao mov = new Movimentacao();
+
+            // Data de locação = hoje
+            mov.Datalocacao = DateOnly.FromDateTime(DateTime.Today);
+
+            // Data de vencimento = hoje + 14 dias
+            mov.Datadevolucao = mov.Datalocacao.AddDays(14);
+
             ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "Nome");
             ViewData["FilmeId"] = new SelectList(_context.Filme, "FilmeId", "Titulo");
             return View();
@@ -63,6 +71,29 @@ namespace SistemaLocacao.Controllers
         {
             if (ModelState.IsValid)
             {
+                movimentacao.Datalocacao = DateOnly.FromDateTime(DateTime.Today);
+                movimentacao.Datadevolucao = movimentacao.Datalocacao.AddDays(14);
+
+
+
+                // Buscar cliente
+                var cliente = await _context.Cliente
+                    .FirstOrDefaultAsync(c => c.ClienteId == movimentacao.ClienteId);
+
+                // Buscar filme
+                var filme = await _context.Filme
+                    .FirstOrDefaultAsync(f => f.FilmeId == movimentacao.FilmeId);
+
+                if (cliente != null)
+                {
+                    cliente.Alugando = true;
+                }
+
+                if (filme != null)
+                {
+                    filme.Disponivel = false;
+                    filme.ClienteId = movimentacao.ClienteId;
+                }
                 _context.Add(movimentacao);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

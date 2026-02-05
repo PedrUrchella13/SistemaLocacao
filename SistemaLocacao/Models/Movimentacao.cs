@@ -1,4 +1,6 @@
-﻿namespace SistemaLocacao.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SistemaLocacao.Models
 {
     public class Movimentacao
     {
@@ -7,7 +9,9 @@
         public Cliente? Cliente { get; set; }
         public int FilmeId { get; set; }
         public Filme? Filme { get; set; }
+        [Display(Name = "Data de Locação")]
         public DateOnly Datalocacao { get; set; }
+        [Display(Name = "Data de Devolução")]
         public DateOnly Datadevolucao { get; set; }
 
 

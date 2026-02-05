@@ -20,10 +20,23 @@ namespace SistemaLocacao.Controllers
         }
 
         // GET: Filmes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? termo)
         {
+            // Guarda o termo para reutilizar na View
+            ViewData["Termo"] = termo;
+
+            var filmes = _context.Filme
+                .Include(f => f.Cliente)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(termo))
+            {
+                filmes = filmes.Where(f => f.Titulo.ToLower().Contains(termo.ToLower()));
+            }
+
+
             var applicationDbContext = _context.Filme.Include(f => f.Cliente);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await filmes.ToListAsync());
         }
 
         // GET: Filmes/Details/5
